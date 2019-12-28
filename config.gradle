@@ -1,0 +1,57 @@
+ext {
+    android = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.2",
+            minSdkVersion    : 23,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    dependencies = [
+            kotlinStdlib         : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            appcompat            : 'androidx.appcompat:appcompat:1.0.2',
+            multidex             : 'androidx.multidex:multidex:2.0.0',
+            junit                : 'junit:junit:4.12',
+            testRunner           : 'androidx.test:runner:1.1.1',
+            testEspresso         : 'androidx.test.espresso:espresso-core:3.1.1',
+            droidsonroidsGif     : 'pl.droidsonroids.gif:android-gif-drawable:1.2.16',
+            material             : 'com.google.android.material:material:1.0.0',
+            recyclerview         : 'androidx.recyclerview:recyclerview:1.0.0',
+            lifecycleExtensions  : 'androidx.lifecycle:lifecycle-extensions:2.0.0-rc01',
+            // 必要的Retrofit依赖
+            okhttp               : 'com.squareup.okhttp3:logging-interceptor:3.4.1',
+            retrofit             : 'com.squareup.retrofit2:retrofit:2.4.0',
+            retrofitConverterGson: 'com.squareup.retrofit2:converter-gson:2.3.0',
+            retrofitConverters   : 'com.squareup.retrofit2:retrofit-converters:2.6.0',
+            retrofitAdapter      : 'com.squareup.retrofit2:adapter-rxjava2:2.3.0',
+            // 必要rxjava2依赖
+            rxjava               : 'io.reactivex.rxjava2:rxjava:2.1.0',
+            // 必要rxandroid依赖，切线程时需要用到
+            rxandroid            : 'io.reactivex.rxjava2:rxandroid:2.0.1',
+            // 阿里ARouter框架 路由跳转页面,用于多模块开发
+            arouterApi           : 'com.alibaba:arouter-api:1.5.0',
+            arouterCompiler      : 'com.alibaba:arouter-compiler:1.2.2',
+            glide                : 'com.github.bumptech.glide:glide:4.9.0',
+            glideCompiler        : 'com.github.bumptech.glide:compiler:4.9.0',
+            // 蜻蜓FM SDK
+            qingtingFM           : 'fm.qingting.open.android:qtsdk:1.9.0',
+            qingtingPlayer       : 'fm.qingting.open.android:qtplayer:0.4.0',
+            design               : 'com.android.support:design:29.0.0',
+            jetbrainsAnnotations : 'org.jetbrains:annotations:15.0',
+            droidsonroidsGif     : 'pl.droidsonroids.gif:android-gif-drawable:1.2.16',
+            clientMQTT           : 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0',
+            serviceMQTT          : 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1',
+            klog                 : 'com.github.zhaokaiqiang.klog:library:1.6.0',
+            eventBus             : 'org.greenrobot:eventbus:3.1.1',
+            //exoPlayer            : 'com.google.android.exoplayer:exoplayer:2.10.5'
+            gifImage             :  'pl.droidsonroids.gif:android-gif-drawable:1.2.16',
+            support_v4           : 'com.android.support:support-v4:27.1.1',
+            support_annotations  : 'com.android.support:support-annotations:28.0.0',
+            jiaoziVedio          : 'cn.jzvd:jiaozivideoplayer:7.0.5',
+            niceImageView        : 'com.github.SheHuan:NiceImageView:1.0.5',
+            zxing                : 'com.google.zxing:core:3.2.1'
+
+
+    ]
+}

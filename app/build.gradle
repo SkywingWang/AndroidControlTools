@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+def config = rootProject.ext.android //sdk版本配置
+def librarys = rootProject.ext.dependencies //第三方依赖版本配置
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        applicationId "com.skywingwang.androidcontroltools"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions{
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation librarys.kotlinStdlib
+    implementation librarys.appcompat
+    implementation librarys.recyclerview
+    implementation librarys.lifecycleExtensions
+    testImplementation librarys.junit
+    androidTestImplementation librarys.testRunner
+    androidTestImplementation librarys.testEspresso
+
+    implementation project(path: ":core")
+
+    annotationProcessor librarys.arouterCompiler        //阿里路由控件
+}
