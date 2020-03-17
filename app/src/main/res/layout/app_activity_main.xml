@@ -5,12 +5,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
+        <include
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/app_tv_seekbar"
-            android:gravity="center"
-            android:text="拖动条控件"
-            />
+            android:layout_height="wrap_content"
+            android:id="@+id/i_title"
+            layout="@layout/layout_title_bar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="100dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/app_tv_seekbar"
+                android:gravity="center"
+                android:text="@string/app_drag_bar"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/app_tv_system_setting"
+                android:gravity="center"
+                android:text="@string/app_system_setting"
+                />
+        </LinearLayout>
     </LinearLayout>
 </layout>

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 def config = rootProject.ext.android //sdk版本配置
 def librarys = rootProject.ext.dependencies //第三方依赖版本配置
@@ -22,11 +23,17 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
 
-        javaCompileOptions {
-            annotationProcessorOptions{
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//        javaCompileOptions {
+//            annotationProcessorOptions{
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
             }
         }
+
     }
 
     buildTypes {
@@ -44,10 +51,11 @@ dependencies {
     implementation librarys.appcompat
     implementation librarys.recyclerview
     implementation librarys.lifecycleExtensions
+    implementation librarys.multidex
     testImplementation librarys.junit
     androidTestImplementation librarys.testRunner
     androidTestImplementation librarys.testEspresso
 
     api librarys.arouterApi                  //阿里路由控件
-    annotationProcessor librarys.arouterCompiler
+    kapt librarys.arouterCompiler
 }

@@ -10,7 +10,7 @@ ext {
 
     dependencies = [
             kotlinStdlib         : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
-            appcompat            : 'androidx.appcompat:appcompat:1.0.2',
+            appcompat            : 'androidx.appcompat:appcompat:1.1.0',
             multidex             : 'androidx.multidex:multidex:2.0.0',
             junit                : 'junit:junit:4.12',
             testRunner           : 'androidx.test:runner:1.1.1',

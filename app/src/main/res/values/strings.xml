@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndroidControlTools</string>
+    <string name="app_hello_world">Hello World</string>
+    <string name="app_main_title">主页</string>
+    <string name="app_drag_bar">拖动条控件</string>
+    <string name="app_system_setting">系统设置</string>
+    <string name="app_system_bluetooth">蓝牙:</string>
+    <string name="app_system_light">亮度:</string>
+    <string name="app_system_sound">声音:</string>
+    <string name="app_system_wifi">wifi:</string>
 </resources>
