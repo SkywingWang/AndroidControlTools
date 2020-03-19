@@ -16,6 +16,7 @@ open class AndroidControlToolsApplication:BaseApplication(){
     override fun onCreate() {
         super.onCreate()
         instance = this
+        mContext = this
 
         if (AppConfig.isDebug) {
             ARouter.openLog()

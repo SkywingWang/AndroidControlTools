@@ -23,5 +23,10 @@
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:visibility="gone"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#9E9E9E"/>
     </RelativeLayout>
 </layout>
