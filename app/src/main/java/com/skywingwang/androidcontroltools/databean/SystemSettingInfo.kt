@@ -7,6 +7,6 @@ package com.skywingwang.androidcontroltools.databean
 class SystemSettingInfo {
     var isBluetoothEnable : Boolean = false
     var isWifiEnable : Boolean = false
-    var lightLevel: Int = 0
-    var voiceLevel:Int = 0
+    var brightness: Int = 0
+    var volume:Int = 0
 }

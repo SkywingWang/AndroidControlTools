@@ -16,6 +16,8 @@ class SystemSettingViewModel : BaseViewModel(){
             var systemSettingInfo = SystemSettingInfo()
             systemSettingInfo.isBluetoothEnable = SystemSettingUtils.getBluetoothStatus()
             systemSettingInfo.isWifiEnable = SystemSettingUtils.getWifiStatus(AndroidControlToolsApplication.getContext())
+            systemSettingInfo.brightness = SystemSettingUtils.getSystemBrightness(AndroidControlToolsApplication.getContext())
+            systemSettingInfo.volume = SystemSettingUtils.getSystemVolume(AndroidControlToolsApplication.getContext())
             it.value = systemSettingInfo
         }
     }
@@ -50,6 +52,20 @@ class SystemSettingViewModel : BaseViewModel(){
         var systemSettingInfo = systemSettingLiveData.value
         SystemSettingUtils.closeWifi(AndroidControlToolsApplication.getContext())
         systemSettingInfo?.isWifiEnable = false
+        systemSettingLiveData.value = systemSettingInfo
+    }
+
+    fun setBrightness(brightness:Int){
+        var systemSettingInfo = systemSettingLiveData.value
+        SystemSettingUtils.setSystemBrightness(AndroidControlToolsApplication.getContext(),brightness)
+        systemSettingInfo?.brightness = brightness
+        systemSettingLiveData.value = systemSettingInfo
+    }
+
+    fun setVolume(vol : Int){
+        var systemSettingInfo = systemSettingLiveData.value
+        SystemSettingUtils.setSystemVolume(AndroidControlToolsApplication.getContext(),vol)
+        systemSettingInfo?.volume = vol
         systemSettingLiveData.value = systemSettingInfo
     }
 }

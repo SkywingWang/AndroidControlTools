@@ -21,6 +21,9 @@ class SystemSettingActivity : BaseActivity() {
     private lateinit var binding: AppActivitySystemSettingBinding
     private lateinit var mContext: Context
     private lateinit var viewModel: SystemSettingViewModel
+    private var mBrightness:Int = 0
+    private var mVolume:Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +50,11 @@ class SystemSettingActivity : BaseActivity() {
             else
                 viewModel.openWifi()
         }
+        binding.tvBrightnessAdd.setOnClickListener { l -> viewModel.setBrightness(mBrightness + 1)}
+        binding.tvBrightnessSub.setOnClickListener { l -> viewModel.setBrightness(mBrightness - 1)}
+
+        binding.tvVolumeAdd.setOnClickListener { l -> viewModel.setVolume(mVolume + 1) }
+        binding.tvVolumeSub.setOnClickListener { l -> viewModel.setVolume(mVolume - 1) }
     }
 
     private fun initViewForData() {
@@ -60,6 +68,10 @@ class SystemSettingActivity : BaseActivity() {
                 binding.tvWifiSwitch.setText(mContext.getString(R.string.core_on))
             else
                 binding.tvWifiSwitch.setText(mContext.getString(R.string.core_off))
+            mBrightness = systemSettingInfo.brightness
+            mVolume = systemSettingInfo.volume
+            binding.tvBrightness.setText("${systemSettingInfo.brightness}")
+            binding.tvVolume.setText("${systemSettingInfo.volume}")
         })
     }
 }

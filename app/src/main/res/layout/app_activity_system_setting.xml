@@ -66,14 +66,14 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="50dp"
-                    android:id="@+id/tv_light_add"
+                    android:id="@+id/tv_brightness_add"
                     android:gravity="center"
                     android:text="+"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/tv_light_level"
+                    android:id="@+id/tv_brightness"
                     android:gravity="center"
                     android:text="0"/>
 
@@ -81,7 +81,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/tv_light_sub"
+                    android:id="@+id/tv_brightness_sub"
                     android:gravity="center"
                     android:text="-"/>
             </LinearLayout>
@@ -102,14 +102,14 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="50dp"
-                    android:id="@+id/tv_sound_add"
+                    android:id="@+id/tv_volume_add"
                     android:gravity="center"
                     android:text="+"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/tv_sound_level"
+                    android:id="@+id/tv_volume"
                     android:gravity="center"
                     android:text="0"/>
 
@@ -117,7 +117,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/tv_sound_sub"
+                    android:id="@+id/tv_volume_sub"
                     android:gravity="center"
                     android:text="-"/>
             </LinearLayout>

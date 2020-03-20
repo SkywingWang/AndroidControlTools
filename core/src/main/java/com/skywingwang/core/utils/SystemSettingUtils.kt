@@ -2,6 +2,7 @@ package com.skywingwang.core.utils
 
 import android.bluetooth.BluetoothAdapter
 import android.content.Context
+import android.media.AudioManager
 import android.net.wifi.WifiManager
 import android.provider.Settings
 import android.view.WindowManager
@@ -68,5 +69,45 @@ object SystemSettingUtils {
     fun setSystemBrightness(context: Context,brightness:Int){
         val uri = Settings.Secure.getUriFor(Settings.System.SCREEN_BRIGHTNESS)
         Settings.System.putInt(context.contentResolver,Settings.System.SCREEN_BRIGHTNESS,brightness)
+    }
+
+    /**
+     * 范围 0～100
+     */
+    fun getSystemVolume(context: Context):Int{
+        val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_SYSTEM)
+        return audioManager.getStreamVolume(AudioManager.STREAM_MUSIC) * 100 / maxVolume
+    }
+
+    /**
+     * 加音量
+     */
+    fun addSystemVolume(context: Context){
+        val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC,AudioManager.ADJUST_RAISE,0)
+    }
+
+    /**
+     * 减音量
+     */
+    fun subSystemVolume(context: Context){
+        val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC,AudioManager.ADJUST_LOWER,0)
+    }
+
+    /**
+     * 范围 0～100
+     */
+    fun setSystemVolume(context: Context,tVolume:Int){
+        val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+        val vol = Math.ceil(tVolume * maxVolume * 0.01).toInt()
+        if(vol <= 0)
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,0,0)
+        else if(vol >= 100)
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,maxVolume,0)
+        else
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,vol,0)
     }
 }
